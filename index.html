@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenChatSphere - Online</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #212121;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            background-color: #303030;
+            padding: 10px;
+            border-bottom: 1px solid #555;
+        }
+
+        .chat-header h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .chat-body {
+            padding: 20px;
+        }
+
+        .chat-message {
+            margin-bottom: 20px;
+        }
+
+        .chat-message:last-child {
+            margin-bottom: 0;
+        }
+
+        .chat-message .sender {
+            font-weight: bold;
+        }
+
+        .chat-message .timestamp {
+            color: #999;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .chat-input {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .chat-input input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .chat-input input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+			
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>OpenChatSphere</h2>
+        </div>
+        <div class="chat-body">
+			
+			{%for i in messages%}
+				<div class="chat-message">
+					<span class="sender">{{  i[2]  }}</span>
+					<span class="message">{{  i[0]  }}</span>
+					<span class="timestamp">{{  i[1]  }}</span>
+				</div>
+			{%endfor%}
+		<form action="" method="post">
+			<div class="chat-input">
+				<input type="text" name="text" placeholder="Type your message here">
+				<input type="text" name="nickname" placeholder="Type your nickname here">
+				<input type="submit" value="Send">
+			</div>
+		</form>
+    </div>
+</body>
+</html>
